@@ -1,0 +1,19 @@
+<h1>Store</h1>
+<p>Welcome to our product store</p>
+
+<ul>
+    {{#each products}}
+        <li>
+            <p><b>{{this.name}}</b>: {{this.description}}</p>
+            <p><b>Price</b>: ${{this.price}}</p>
+        </li>
+    {{/each}}
+</ul>
+
+<h2>Comentários do Produto</h2>
+<form action="/products" method="POST">
+    <input type="text" name="name" />
+    <input type="text" name="coment" />
+    <input type="hidden" name="prodid" value="{{products.id}}" />
+    <button type="submit">Enviar</button>
+</form>
