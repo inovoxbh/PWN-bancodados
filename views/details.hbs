@@ -5,12 +5,10 @@
 
 <h2>Details</h2>
 <ul>
-    {{#each product}}
         <li>
-            <p><b>{{this.name}}</b>: {{this.description}}</p>
-            <p><b>Price</b>: ${{this.price}}</p>
+            <p><b>{{product.name}}</b>: {{product.description}}</p>
+            <p><b>Price</b>: ${{product.price}}</p>
         </li>
-    {{/each}}
 </ul>
 <br>
 <br>
@@ -39,9 +37,7 @@
     </div>
 
     <div>
-        {{#each product}}
-            <input type="hidden" name="prodid" value="{{this.id}}" />
-        {{/each}}
+        <input type="hidden" name="prodid" value="{{product.id}}" />
         <button type="submit">Send Comment</button>
     </div>
 </form>

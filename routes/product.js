@@ -11,7 +11,7 @@ router.get('/:pid', function(req, res) {
         Comment.find({
             identification : req.params.pid
         })
-        .then(comments => res.render('details', {product,comments}))
+        .then(comments => res.render('details', {product:product[0],comments}))
     })
 });
 
