@@ -18,7 +18,8 @@ router.post('/', function(req, res) {
         author : 'bruno',
         commet : 'teste'
     })
-    .then(() => console.log('registrado com sucesso.'));
+/*    .then(() => console.log('registrado com sucesso.'));*/
+    .then(() => res.send("teste de resposta do html."))
 });
 
 module.exports = router;
