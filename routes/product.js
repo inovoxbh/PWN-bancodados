@@ -14,12 +14,11 @@ router.get('/:pid', function(req, res) {
 
 router.post('/', function(req, res) {
     Comment.create({
-        identification : 1,
-        author : 'bruno',
-        commet : 'teste'
+        identification : req.body.prodid,
+        author : req.body.name,
+        comment : req.body.comment
     })
-/*    .then(() => console.log('registrado com sucesso.'));*/
-    .then(() => res.send("teste de resposta do html."))
+    .then(() => res.send("Comentário incluído com sucesso!"))
 });
 
 module.exports = router;
