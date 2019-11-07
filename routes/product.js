@@ -6,13 +6,17 @@ const Comment = require('../store/Comment');
 /* GET detalhes produto. */
 router.get('/:pid', function(req, res) {
     Products.getById(req.params.pid)
-        .then(function(products) {
-            /* implementar aqui a busca pelos comentários */     
-            res.render('details', { products });
+    .then(function(product) {
+        /* busca dos comentários já incluídos anteriormente */     
+        Comment.find({
+            identification : req.params.pid
         })
+        .then(comments => res.render('details', {product,comments}))
+    })
 });
 
 router.post('/', function(req, res) {
+    /* gravar o comentário */
     Comment.create({
         identification : req.body.prodid,
         author : req.body.name,

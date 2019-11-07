@@ -1,21 +1,47 @@
 <h1>Store</h1>
 <p>Welcome to our product store</p>
+<br>
+<br>
 
+<h2>Details</h2>
 <ul>
-    {{#each products}}
+    {{#each product}}
         <li>
             <p><b>{{this.name}}</b>: {{this.description}}</p>
             <p><b>Price</b>: ${{this.price}}</p>
         </li>
     {{/each}}
 </ul>
+<br>
+<br>
 
-<h2>Comentários do Produto</h2>
-<form action="/products" method="POST">
-    <input type="text" name="name" />
-    <input type="text" name="comment" />
-    {{#each products}}
-        <input type="hidden" name="prodid" value="{{this.id}}" />
-        <button type="submit">Enviar</button>
+<h2>Comments</h2>
+<ul>
+    {{#each comments}}
+        <li>
+            <p><b>Author</b>: {{this.author}} <b>Comment</b>: {{this.comment}}</p>
+        </li>
     {{/each}}
+</ul>
+<br>
+<br>
+
+<h2>New Comment</h2>
+<form action="/products" method="POST">
+    <div>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" placeholder="Your name"/>
+    </div>
+
+    <div>
+        <label for="name">Comment</label>
+        <input type="text" name="comment" id="comment" placeholder="Your comment"/>
+    </div>
+
+    <div>
+        {{#each product}}
+            <input type="hidden" name="prodid" value="{{this.id}}" />
+        {{/each}}
+        <button type="submit">Send</button>
+    </div>
 </form>
